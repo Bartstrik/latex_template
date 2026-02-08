@@ -1,0 +1,29 @@
+%!TEX root = ../main.tex
+
+\ProvidesPackage{my_layout}
+
+\RequirePackage{titlesec}
+\RequirePackage{babel}
+\RequirePackage[a4paper]{geometry}
+
+% ----- Page Margins ----- %
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=1.5cm,rmargin=1.5cm}
+
+% ----- Update \part layout ----- %
+\titleformat{\part}
+[display]
+{\normalfont\Huge\bfseries}
+{\titlerule[2px] \vspace{20px}\MakeUppercase{\partname} \thepart}
+{0pt}
+{\huge}[\rule{\textwidth}{2px}]
+
+\titlespacing*{\part}{0pt}{0pt}{20pt}
+
+\let\Oldpart\part
+\newcommand{\parttitle}{}
+\renewcommand{\part}[1]{%
+    \Oldpart{#1}%
+    \renewcommand{\parttitle}{#1}%
+    \addtocontents{toc}{\protect\vspace*{-0.95cm}\hrulefill\par}%
+    \addtocontents{toc}{\protect\vspace*{0.35cm}\hrulefill\par}%
+}

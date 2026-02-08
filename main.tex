@@ -1,0 +1,137 @@
+\documentclass{doku_tpl}
+
+\usepackage{my_layout}
+\usepackage{multicol}
+\usepackage{acronym}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{bookmark}
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage{footnote}
+
+
+\bibliographystyle{unsrtnat} 
+
+\begin{document}
+
+\subject{Specialization Project 1, FS25}
+
+\title{Bulk material counting using event cameras functional demonstrator}
+\subtitle{{\normalsize{Embedded integration of an event camera with real time processing for counting bulk material}}}
+
+\author{Bart Strik}
+\adviser{Prof. Dr. Klaus Zahn}
+\data{
+\vspace{0.2cm} Horw, Date, Year}
+\discipline{Electrical Engineering}
+\expert{Marco Hauri}
+\frontpage{}
+
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\pagestyle{fancy}
+
+\graphicspath{img/} 
+
+% force fancyhdr on toc ------------------------check
+\let\LaTeXStandardTOC\tableofcontents%
+\renewcommand{\tableofcontents}{%
+\begingroup
+\renewcommand{\thispagestyle}[1]{%
+\relax% Do nothing at all
+}%
+\LaTeXStandardTOC%
+\endgroup
+}%
+
+\renewcommand{\footrulewidth}{0.4pt}
+\pagebreak
+\fancyhead{}
+\fancyfoot{}	 
+\fancyhead[R]{\Subject}
+    
+\fancyfoot[L]{\Author}
+\fancyfoot[C]{Page \thepage \ of \pageref{LastPage}}
+\fancyfoot[R]{Hochschule Luzern T\&A}
+
+
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{0.2in}
+    
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%\include{content/00_probity_statement}	
+
+\include{content/01_abstract_en}
+
+\clearpage
+\vspace*{-10mm}
+\tableofcontents
+ 	
+\clearpage
+\fancyhead[L]{\partname \ \thepart}	  
+
+
+%-----------------------------------------------------------------        
+% Include Files
+%-----------------------------------------------------------------        
+        
+\part{Introduction}
+\input{content/10_introduction}
+\clearpage
+
+\part{Theory}
+\input{content/20_theory}
+\clearpage
+
+\part{Realization}
+\input{content/30_realization}
+\clearpage
+
+\part{Results}
+\input{content/40_results}
+\clearpage
+
+\part{Conclusion}
+\input{content/50_conclusion}
+\clearpage
+
+\bookmarksetup{startatroot} % next content out of last part in bookmarks
+\clearpage
+
+\input{content/80_abbreviations}
+
+\addtocontents{toc}{\protect\vspace*{-2.5mm}}     % add vspace in toc
+
+\addcontentsline{toc}{section}{List of Figures}
+\clearpage
+
+\vspace*{-21mm}
+\listoffigures
+
+\addtocontents{toc}{\protect\vspace*{-2.5mm}}     % add vspace in toc
+
+\addcontentsline{toc}{section}{List of Tables}
+
+\listoftables
+
+\addtocontents{toc}{\protect\vspace*{-2.5mm}}     % add vspace in toc
+        
+
+% Bibliografy
+\addcontentsline{toc}{section}{Bibliography}
+\bibliography{references}
+% \input{main.bbl}
+\nocite{*}
+\newpage
+
+\part{Appendix}
+\input{content/90_appendix}
+
+\include{content/appendix}  
+
+\end{document}
