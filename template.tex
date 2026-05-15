@@ -4,6 +4,8 @@
 \usepackage{listings}
 \usepackage{subcaption}
 \usepackage{geometry}
+\usepackage{float}
+
 \geometry{
     a4paper,
     left=20mm,
@@ -18,7 +20,7 @@
 \begin{document}
 \maketitle
 
-\begin{figure}[h!]
+\begin{figure}[!htbp] % change to H to force position
     \centering
 	\includegraphics[width=0.5\textwidth]{img/example.png}
     \caption{example img}
