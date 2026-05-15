@@ -5,3 +5,10 @@
 *.log
 *.synctex.gz
 *.pdf
+*.acn
+*.blg
+*.lof
+*.lot
+*.toc
+
+**/signature.jpeg
