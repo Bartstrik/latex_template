@@ -9,11 +9,11 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{bookmark}
-\usepackage[sort&compress,numbers]{natbib}
 \usepackage{footnote}
+\usepackage[style=numeric]{biblatex}
 
 
-\bibliographystyle{unsrtnat} 
+\addbibresource{references.bib}
 
 \begin{document}
 
@@ -82,6 +82,7 @@
         
 \part{Introduction}
 \input{content/10_introduction}
+\cite{einstein}
 \clearpage
 
 \part{Theory}
@@ -108,7 +109,6 @@
 \addtocontents{toc}{\protect\vspace*{-2.5mm}}     % add vspace in toc
 
 \addcontentsline{toc}{section}{List of Figures}
-\clearpage
 
 \vspace*{-21mm}
 \listoffigures
@@ -124,11 +124,9 @@
 
 % Bibliografy
 \addcontentsline{toc}{section}{Bibliography}
-\bibliography{references}
-% \input{main.bbl}
-\nocite{*}
-\newpage
+\printbibliography
 
+\newpage
 \part{Appendix}
 \input{content/90_appendix}
 

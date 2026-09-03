@@ -10,4 +10,6 @@
 *.lot
 *.toc
 *.bbl
+*.xml
+*.bcf
 **/signature*
