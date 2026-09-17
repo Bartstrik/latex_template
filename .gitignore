@@ -10,5 +10,7 @@
 *.lof
 *.lot
 *.toc
+*.bcf
+*.xml
 
 **/signature.jpeg
