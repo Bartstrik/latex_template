@@ -1,36 +1,72 @@
-\documentclass[8pt]{extarticle}
+\documentclass{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[export]{adjustbox}
-\usepackage{listings}
-\usepackage{subcaption}
-\usepackage{geometry}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{extsizes}
-\usepackage{enumitem}
-\usepackage{hyperref}
 
-\setlist[itemize]{noitemsep}
-\setlength{\parindent}{0pt}
-
-\geometry{
-    a4paper,
-    left=15mm,
-    right=10mm,
-    top=10mm,
-    bottom=15mm,
-}
+\usetheme[compress]{Berlin}
+\usecolortheme{seahorse}
 
 \title{Template}
+\subtitle{Sub title}
+
 \author{Bart Strik}
+\institute[HSLU]
+{
+    Institute Elektrotechnik \\
+    CC ISN \\
+    HSLU
+}
+
+\date{"event", xx-xx-xxxx}
+\logo{\includegraphics[height=1cm]{img/hslu_logo.png}}
+
 
 \begin{document}
-\maketitle
+\frame{\titlepage}
 
-\begin{figure}[!htbp] % change to H to force position
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/example.png}
-	\caption{example img}
-\end{figure}
+\begin{frame}{Sample frame title}
+    test
+\end{frame}
 
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Blocks example}
+\subsection{Blocks 1}
+\begin{frame}{Blocks example}
+    \begin{block}{Remark}
+        Sample text.
+    \end{block}
+\end{frame}
+
+\subsection{Blocks 2}
+\begin{frame}{Blocks example}
+    \begin{alertblock}{Important}
+        Sample text.
+    \end{alertblock}
+\end{frame}
+
+\subsection{Blocks 3}
+\begin{frame}{Blocks example}
+    \begin{examples}{Examples}
+        Sample text.
+    \end{examples}
+\end{frame}
+
+\section{Columns example}
+\begin{frame}{Two-column slide}
+    \begin{columns}
+        \column{0.5\textwidth}
+            This is a text in first column.
+            $$E=mc^2$$
+            \begin{itemize}
+                \item First item
+                \item Second item
+            \end{itemize}
+
+        \column{0.5\textwidth}
+            This text will be in the second column
+            and on a second thoughts, this is a nice looking
+            layout in some cases.
+    \end{columns}
+\end{frame}
 \end{document}

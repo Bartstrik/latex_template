@@ -12,5 +12,8 @@
 *.toc
 *.bcf
 *.xml
+*.nav
+*.out
+*.snm
 
 **/signature.jpeg
