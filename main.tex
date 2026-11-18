@@ -1,8 +1,6 @@
 \documentclass{beamer}
-\usepackage[utf8]{inputenc}
 \usepackage{beamerfoils}
-
-
+\usepackage{xcolor}
 
 % ----------------------------------------------------------------------
 % used in case we need absolute positioning of text/images,
@@ -14,13 +12,42 @@
 \textblockorigin{10mm}{10mm} % start everything near the top-left corner
 % ----------------------------------------------------------------------
 
-\usetheme[compress]{Berlin}
+\usetheme[compress, subsection=false]{Berlin}
 \usecolortheme{seahorse}
 
 % ----------------------------------------------------------------------
 % overriding some of the styling options which I thought were ugly
 \setbeamertemplate{sections/subsections in toc}[circle]
 \setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+% ----------------------------------------------------------------------
+
+% ----------------------------------------------------------------------
+% Useful when we want to add extra frames, without having them show up 
+% as new cirlces on the topbar
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+% \miniframesoff
+% \begin{frame}
+%     ...
+% \end{frame
+% \miniframeson
 % ----------------------------------------------------------------------
 
 \title{Template}
@@ -93,5 +120,16 @@
             and on a second thoughts, this is a nice looking
             layout in some cases.
     \end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+    \begin{thebibliography}{9}
+
+        \bibitem{"label"}
+        "authors",
+        \textit{"name"},
+        doi: \href{"link"}{"text"}.
+
+\end{thebibliography}
 \end{frame}
 \end{document}
